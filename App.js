@@ -3,13 +3,23 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import LoginScreen from './screens/LoginScreen';
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+
+const globalScreenOptions = {
+  headerStyle: { backgroundColor: "#2c6bed" },
+  headerTitleStyle: { color: "white" },
+  headerTintColor: "white",
+};
+
 export default function App() {
   return (
     <NavigationContainer>
-    <View style={styles.container}>
-      <Text>Dream team messenger</Text>
-      <StatusBar style="auto" />
-    </View>
+      <Stack.Navigator screenOptions={globalScreenOptions}>
+        <Stack.Screen name='Login' component={LoginScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
