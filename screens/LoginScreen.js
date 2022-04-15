@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, KeyboardAvoidingView } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements'
@@ -41,9 +42,11 @@ const LoginScreen = () => {
             <View style={{ height: 100 }}/>
         </KeyboardAvoidingView>
     )
+
 }
 
 export default LoginScreen
+
 
 const styles = StyleSheet.create({
     container: {

@@ -1,3 +1,4 @@
+
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -14,11 +15,14 @@ const globalScreenOptions = {
   headerTintColor: "white",
 };
 
+
 export default function App() {
   return (
     <NavigationContainer>
+
       <Stack.Navigator screenOptions={globalScreenOptions}>
         <Stack.Screen name='Login' component={LoginScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -27,8 +31,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#b2b2b2",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
