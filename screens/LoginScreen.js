@@ -11,7 +11,7 @@ const LoginScreen = () => {
     const signIn = () => {};
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <StatusBar style="light" />
             <Image 
                 source= {{
