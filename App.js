@@ -9,11 +9,21 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
+const globalScreenOptions = {
+  headerStyle: {backgroundColor: "#FFF684"},
+  headerTitleStyle: {color: "#89C7E7"},
+  headerTintColor: "black",
+}
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="LOGIN!" component={LoginScreen}/>
+      <Stack.Navigator screenOptions={globalScreenOptions}>
+        <Stack.Screen 
+        // options={{title: "Lets Sign Up",}}
+          name="Login" 
+          component={LoginScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -25,5 +35,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#b2b2b2",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: 'center',
   },
 });
