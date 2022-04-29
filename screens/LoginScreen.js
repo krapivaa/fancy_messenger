@@ -1,3 +1,4 @@
+
 import React, {useState,useEffect} from 'react';
 import { StyleSheet, View,  KeyboardAvoidingView} from 'react-native';
 import { Button, Input, Image } from 'react-native-elements';
@@ -69,7 +70,9 @@ const LoginScreen = ({ navigation }) => {
   )
 };
 
+
 export default LoginScreen;
+
 
 const styles = StyleSheet.create({
   container: {
