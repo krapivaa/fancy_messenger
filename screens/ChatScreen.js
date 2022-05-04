@@ -82,7 +82,7 @@ const ChatScreen = ({navigation, route}) => {
         }))
     ));
     return unsubscribe;
-  }, [root]);
+  }, [route]);
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: "white"}}>
