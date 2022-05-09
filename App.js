@@ -1,4 +1,3 @@
-
 import React from "react";
 import "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
@@ -11,11 +10,9 @@ import AddChatScreen from "./screens/AddChatScreen";
 import ChatScreen from "./screens/ChatScreen";
 
 
-
 const Stack = createStackNavigator();
 
 const globalScreenOptions = {
-
   headerStyle: {backgroundColor: "#FFF684"},
   headerTitleStyle: {color: "#89C7E7"},
   headerTintColor: "black",

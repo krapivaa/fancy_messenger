@@ -1,9 +1,9 @@
-
 import React, {useState,useEffect} from 'react';
 import { StyleSheet, View,  KeyboardAvoidingView} from 'react-native';
-import { Button, Input, Image } from 'react-native-elements';
+import { Button, Input, Text, Image } from 'react-native-elements';
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
+import { color } from 'react-native-reanimated';
 
 const LoginScreen = ({ navigation }) => {
 
@@ -28,12 +28,12 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
+       <Text h3 style={styles.text}>Fancy Signal</Text>
       <StatusBar style = "light"/>
-      {/* <Text> The Login Screen</Text> */}
       <Image source={{
         uri: "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
       }}
-      style={{width: 200, height: 200}}
+      style={styles.image}
       />
       <View style={styles.inputContainer}>
         <Input 
@@ -89,4 +89,14 @@ const styles = StyleSheet.create({
     width: 200,
     marginTop: 10,
   },
+  image: {
+    width: 200, 
+    height: 200
+  },
+  text: {
+    padding: 10,
+    margin: 10,
+    color: "#89C7E7",
+    fontWeight: "700"
+  }
 });
