@@ -31,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
        <Text h3 style={styles.text}>Fancy Signal</Text>
       <StatusBar style = "light"/>
       <Image source={{
-        uri: "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
+        uri:"https://i.imgur.com/O4UARz8.png",
       }}
       style={styles.image}
       />

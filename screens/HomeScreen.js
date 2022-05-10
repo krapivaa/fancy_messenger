@@ -1,43 +1,50 @@
-import React, {useLayoutEffect, useState, useEffect} from 'react';
-import { StyleSheet, ScrollView, View, TouchableOpacity, SafeAreaView } from 'react-native';
-import { Avatar } from 'react-native-elements';
-import CustomListItem from '../components/CustomListItem';
-import { auth, db } from '../firebase';
-import {AntDesign, SimpleLineIcons} from "@expo/vector-icons"
-
+import React, { useLayoutEffect, useState, useEffect } from "react";
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
+import { Avatar } from "react-native-elements";
+import CustomListItem from "../components/CustomListItem";
+import { auth, db } from "../firebase";
+import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
+  const [chats, setChats] = useState([]);
 
-    const [chats, setChats] = useState([]); 
+  const signOutUser = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login");
+      })
+      .catch((error) => alert(error));
+  };
 
-    const signOutUser = () => {
-        auth.signOut()
-        .then(() => {
-            navigation.replace ("Login");
-        })
-        .catch((error) => alert(error));
-    };
+  useEffect(() => {
+    const unsubscribe = db.collection("chats").onSnapshot((snapshot) =>
+      setChats(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return unsubscribe;
+  }, []);
 
-    useEffect(() => {
-        const unsubscribe = db.collection("chats").onSnapshot(snapshot =>
-             setChats(snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data()
-                }))
-            )
-        );
-        return unsubscribe;
-    }, []);
-    
-
-    useLayoutEffect(() => {
-      navigation.setOptions({
-        title: "Fancy Signal",
-        headerStyle: {backgroundColor: "white"},
-        headerTitleStyle: {color: "black"},
-        headerTintColor: "black",
-        headerLeft: () => (
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: "Fancy Signal",
+      headerStyle: { backgroundColor: "white" },
+      headerTitleStyle: { color: "black" },
+      headerTintColor: "black",
+      headerLeft: () => (
         <View style={{ marginLeft: 20 }}>
+
+
             <TouchableOpacity activeOpacity={0.5} onPress={signOutUser}>
                 <Avatar rounded source={{ uri: auth?.currentUser?.photoURL }}/>
             </TouchableOpacity>
@@ -60,17 +67,18 @@ const HomeScreen = ({ navigation }) => {
       })
     }, [navigation]);
 
-  const enterChat = (id, chatName) => {
-      navigation.navigate("Chat", {
-          id: id,
-          chatName: chatName
-      });
-  }
 
+  const enterChat = (id, chatName) => {
+    navigation.navigate("Chat", {
+      id: id,
+      chatName: chatName,
+    });
+  };
 
   return (
-    <SafeAreaView>    
+    <SafeAreaView>
       <ScrollView style={styles.container}>
+
          {chats.map(({ id, data: {chatName} }) => (
              <CustomListItem 
                 key={id} 
@@ -80,6 +88,7 @@ const HomeScreen = ({ navigation }) => {
              />
             )
          )}                      
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -88,7 +97,7 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        height: "100%",
-    },
+  container: {
+    height: "100%",
+  },
 });
