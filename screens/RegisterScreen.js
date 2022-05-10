@@ -30,11 +30,11 @@ export default function RegisterScreen({ navigation }) {
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       
-      <Text h4 style={{ marginBottom: 50 }}>Create a Signal account</Text>
+      <Text h4 style={styles.text}>Create Fancy Signal account</Text>
 
       <View style={ styles.inputContainer}>
         <Input
-            placeholder="Full Name"
+            placeholder="Name / Nickname"
             autofocus
             type="text"
             value={name}
@@ -74,17 +74,23 @@ export default function RegisterScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 10,
-        backgroundColor: "white",
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 10,
+      backgroundColor: "white",
     },
     inputContainer: {
-        width: 300,
+      width: 300,
     },
     button: {
-        width: 200,
-        marginTop: 10,
+      width: 200,
+      marginTop: 15,
+      padding: 10
+    },
+    text: {
+      marginBottom: 50,
+      color: "#89C7E7",
+      fontWeight: "700"
     }
 })

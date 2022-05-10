@@ -1,4 +1,3 @@
-
 import React from "react";
 import "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
@@ -14,11 +13,9 @@ LogBox.ignoreLogs(['Setting a timer for a long period of time'])
 
 
 
-
 const Stack = createStackNavigator();
 
 const globalScreenOptions = {
-
   headerStyle: {backgroundColor: "#FFF684"},
   headerTitleStyle: {color: "#89C7E7"},
   headerTintColor: "black",

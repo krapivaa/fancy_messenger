@@ -13,11 +13,17 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
       .collection("messages")
       .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) =>
-        setChatMessages(snapshot.docs.map((doc) => doc.data()))
+        setChatMessages(
+          snapshot.docs.map((doc) =>
+            doc.data({
+              id: doc.id,
+              data: doc.data(),
+            })
+          )
+        )
       );
-
     return unsubscribe;
-  });
+  }, []);
 
   return (
     <ListItem onPress={() => enterChat(id, chatName)} key={id} bottomDivider>
