@@ -31,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
       <StatusBar style = "light"/>
       {/* <Text> The Login Screen</Text> */}
       <Image source={{
-        uri: "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
+        uri:"https://i.imgur.com/O4UARz8.png",
       }}
       style={{width: 200, height: 200}}
       />
