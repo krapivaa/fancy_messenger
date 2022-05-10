@@ -15,7 +15,7 @@ const ChatScreen = ({navigation, route}) => {
   useLayoutEffect(() => {
 
     let unmounted = false;
-
+    
     navigation.setOptions({
         title: "Chat",
         headerBackTitleVisible: false,
@@ -41,22 +41,23 @@ const ChatScreen = ({navigation, route}) => {
               <AntDesign name="arrowleft" size={24} color="#89C7E7" />
           </TouchableOpacity>  
         ),
-        headerRight: () => (
-            <View
-                style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    width: 80,
-                    marginRight: 20
-                }}>
-                <TouchableOpacity>
-                    <FontAwesome name="video-camera" size={24} color="#89C7E7" />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Ionicons name="call" size={24} color="#89C7E7"  />
-                </TouchableOpacity>
-            </View>
-        )
+        // headerRight: () => (
+        //     <View
+        //         style={{
+        //             flexDirection: "row",
+        //             justifyContent: "space-between",
+        //             width: 80,
+        //             marginRight: 20
+        //         }}>
+        //         <TouchableOpacity>
+        //             <FontAwesome name="video-camera" size={24} color="#89C7E7"
+        //             />
+        //         </TouchableOpacity>
+        //         <TouchableOpacity>
+        //             <Ionicons name="call" size={24} color="#89C7E7" />
+        //         </TouchableOpacity>
+        //     </View>
+        // )
     });
     return () => { unmounted = true };
   }, [navigation, messages]);
@@ -82,7 +83,7 @@ const ChatScreen = ({navigation, route}) => {
         }))
     ));
     return unsubscribe;
-  }, [root]);
+  }, [route]);
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: "white"}}>
@@ -102,7 +103,7 @@ const ChatScreen = ({navigation, route}) => {
                                 <Avatar
                                     position="absolute"
                                     rounded
-                                    // for WEB
+                                    // styling for WEB
                                     containerStyle={{
                                         position: "absolute",
                                         bottom: -15,
@@ -123,7 +124,7 @@ const ChatScreen = ({navigation, route}) => {
                                 <Avatar
                                     position="absolute"
                                     rounded
-                                    // for WEB
+                                    // styling for WEB
                                     containerStyle={{
                                         position: "absolute",
                                         bottom: -15,

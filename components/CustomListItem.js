@@ -9,11 +9,16 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
 
   useEffect(() => {
 
-    const unsubscribe = db.collection("chats").doc(id).collection("messages").orderBy ("timestamp", "asc").onSnapshot((snapshot) => setChatMessages(snapshot.docs.map((doc) => doc.data())));
-
+    const unsubscribe = db.collection("chats").doc(id).collection("messages").orderBy ("timestamp", "asc").onSnapshot(snapshot => 
+        setChatMessages(snapshot.docs.map(doc => doc.data({
+          id:doc.id,
+          data: doc.data()
+        }))
+      )
+    );
     return unsubscribe;
    
-  });
+  },[]);
   
 
   return (
@@ -40,6 +45,4 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
 
 export default CustomListItem;
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});

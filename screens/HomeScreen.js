@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
                 marginRight: 20,
             }}>
                 <TouchableOpacity activeOpacity={0.5}>
-                    <AntDesign name="camerao" size={24} color="black" />              
+                    {/* <AntDesign name="camerao" size={24} color="black" />               */}
                 </TouchableOpacity >
                 <TouchableOpacity onPress={() => navigation.navigate("AddChat")} activeOpacity={0.5}>
                     <SimpleLineIcons name="pencil" size={24} color="black" />
@@ -71,8 +71,13 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView>    
       <ScrollView style={styles.container}>
-         {chats.map(( { id, data: {chatName} }) => (
-             <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat}  />
+         {chats.map(({ id, data: {chatName} }) => (
+             <CustomListItem 
+                key={id} 
+                id={id} 
+                chatName={chatName} 
+                enterChat={enterChat}
+             />
             )
          )}                      
       </ScrollView>
